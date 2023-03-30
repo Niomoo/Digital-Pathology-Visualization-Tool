@@ -1,32 +1,40 @@
 <header class="p-6">
-  <nav class="flex items-center justify-between bg-white h-19 shadow-xl rounded-3xl px-7">
+  <nav class="flex items-center justify-between bg-white h-18 shadow-xl rounded-2xl px-7">
     <div class="logo">
       <h1 class="text-black cursor-pointer text-xl font-bold">Digital Pathology Visualization Tool</h1>
     </div>
     <ul class="flex">
       <li>
-        <a class="text-gray-700 mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
+        <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
           <i class="fas fa-home"></i> Dashboard
         </a>
       </li>
       <li>
-        <a class="text-gray-700 mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
+        <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
           <i class="fa-solid fa-file"></i> History
         </a>
       </li>
       <li>
-        <a class="text-gray-700 mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
+        <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded" href="#">
           <i class="fa-solid fa-magnifying-glass-chart"></i> Statistics
         </a>
       </li>
     </ul>
-    <div class="flex items-center">
-      <div class="bg-black w-2 h-2 p-2"></div>
+    <div class="flex items-center my-2">
+      <div class="bg-black w-8 h-8 mr-2 rounded-full"></div>
       <div class="flex flex-col">
-        <span>Jenny</span>
-        <span class="text-gray-500">myEmail@mail.com</span>
+        <span class="font-medium">Jenny</span>
+        <span class="text-gray-500">myEmail@gmail.com</span>
       </div>
     </div>
   </nav>
 </header>
 <router-outlet></router-outlet>
+<main class="px-6 flex justify-between h-full">
+  <section class="bg-white w-1/6 rounded-2xl p-5 shadow-xl">
+    left
+  </section>
+  <section class="bg-white w-5/6 rounded-2xl ml-6 p-5 shadow-xl">
+    right
+  </section>
+</main>
