@@ -7,6 +7,8 @@ import { ProjectDashboardComponent } from './project-dashboard/project-dashboard
 import { ProjectListComponent } from './ProjectDashboard/project-list/project-list.component';
 import { FirstJudgementComponent } from './first-judgement/first-judgement.component';
 import { SecondJudgementComponent } from './second-judgement/second-judgement.component';
+import { UploadDatasetComponent } from './upload-dataset/upload-dataset.component';
+import { DataDetailComponent } from './data-detail/data-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SecondJudgementComponent } from './second-judgement/second-judgement.co
     ProjectDashboardComponent,
     ProjectListComponent,
     FirstJudgementComponent,
-    SecondJudgementComponent
+    SecondJudgementComponent,
+    UploadDatasetComponent,
+    DataDetailComponent
   ],
   imports: [
     BrowserModule,
