@@ -1,3 +1,4 @@
+import { ProjectDashboardRoutingModule } from './project-dashboard/project-dashboard-routing.module';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: appPath.analysis,
     loadChildren: () => import('./analysis/analysis.module').then(m => m.AnalysisModule)
   },
+  {
+    path: '**',
+    redirectTo: appPath.projectDashboard,
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
