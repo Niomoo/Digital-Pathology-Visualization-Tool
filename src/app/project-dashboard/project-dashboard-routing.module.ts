@@ -1,5 +1,5 @@
 import { ProjectDashboardComponent } from './project-dashboard.component';
-import { ProjectListComponent } from '../ProjectDashboard/project-list/project-list.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

@@ -12,6 +12,6 @@ export class ProjectListService {
   constructor(private http: HttpClient) { }
 
   getProject(): Observable<ProjectArray> {
-    return this.http.get('http://140.116.247.175:8000/api/projects') as Observable<ProjectArray>;
+    return this.http.get('http://140.116.247.175:8000/api/projects/') as Observable<ProjectArray>;
   }
 }
