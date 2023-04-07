@@ -1,8 +1,16 @@
 from django.db import models
 
 # Create your models here.
+
+class User(models.Model):
+  u_id = models.AutoField(primary_key=True)
+  name = models.CharField(max_length=255)
+  mail = models.EmailField(max_length=255)
+  password = models.CharField(max_length=255)
+
 class Project(models.Model):
   p_id = models.AutoField(primary_key=True)
+  u_id = models.ForeignKey(User, on_delete=models.CASCADE)
   title = models.CharField(max_length=255)
   type = models.CharField(max_length=255)
   path = models.CharField(max_length=255)
@@ -20,4 +28,3 @@ class Judgement(models.Model):
   second = models.CharField(max_length=255, blank=True, null=True)
   first_duration = models.DateTimeField(blank=True, null=True)
   second_duration = models.DateTimeField(blank=True, null=True)
-

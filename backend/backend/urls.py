@@ -19,7 +19,10 @@ from rest_framework import routers
 from backend_api import views
 
 router = routers.DefaultRouter()
-router.register(r'projects', views.ProjectViewSet)
+router.register(r'user', views.UserViewSet)
+router.register(r'project', views.ProjectViewSet)
+router.register(r'image', views.ImageViewSet)
+router.register(r'judgement', views.JudgementViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

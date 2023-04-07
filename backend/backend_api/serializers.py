@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Image, Judgement
+from .models import User, Project, Image, Judgement
 
 class JudgementSerializer(serializers.ModelSerializer):
   class Meta:
@@ -18,4 +18,8 @@ class ProjectSerializer(serializers.ModelSerializer):
     model = Project
     fields = ['title', 'type', 'path', 'images']
 
-
+class UserSerializer(serializers.ModelSerializer):
+  projects = ProjectSerializer(many=True, read_only=True)
+  class Meta:
+    model = User
+    fields = ['name', 'mail', 'password', 'projects']
