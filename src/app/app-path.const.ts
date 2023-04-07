@@ -1,6 +1,10 @@
 export const appPath = {
-  projectDashboard: 'projectDashboard',
-  firstJudgement: 'firstJudgement',
-  secondJudgement: 'secondJudgement',
-  analysis: 'analysis',
+  login: 'login',
+  home: 'home',
+  manage: {
+    projectDashboard: 'projectDashboard',
+    firstJudgement: 'firstJudgement',
+    secondJudgement: 'secondJudgement',
+    analysis: 'analysis',
+  },
 };

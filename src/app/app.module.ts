@@ -10,6 +10,8 @@ import { FirstJudgementComponent } from './first-judgement/first-judgement.compo
 import { SecondJudgementComponent } from './second-judgement/second-judgement.component';
 import { UploadDatasetComponent } from './upload-dataset/upload-dataset.component';
 import { DataDetailComponent } from './data-detail/data-detail.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { DataDetailComponent } from './data-detail/data-detail.component';
     FirstJudgementComponent,
     SecondJudgementComponent,
     UploadDatasetComponent,
-    DataDetailComponent
+    DataDetailComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

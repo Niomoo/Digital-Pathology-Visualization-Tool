@@ -1,0 +1,45 @@
+<div class="h-full flex flex-col">
+  <header>
+    <nav class="flex items-center justify-between bg-primary shadow-xl rounded-2xl px-7 mb-6">
+      <div class="logo">
+        <h1 class="text-black cursor-pointer text-xl font-bold">Digital Pathology Visualization Tool</h1>
+      </div>
+      <ul class="flex">
+        <li>
+          <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded"
+            [routerLink]="">
+            <i class="fas fa-home mr-1"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded"
+            [routerLink]="">
+            <i class="fa-solid fa-file mr-1"></i> History
+          </a>
+        </li>
+        <li>
+          <a class="text-gray-700 font-medium mr-4 pt-4 p-4 pr-5 pl-5 hover:text-blue-600 transition-all rounded"
+            [routerLink]="">
+            <i class="fa-solid fa-magnifying-glass-chart mr-1"></i> Statistics
+          </a>
+        </li>
+      </ul>
+      <div class="flex items-center my-1">
+        <div class="bg-black w-8 h-8 mr-2 rounded-full"></div>
+        <div class="flex flex-col">
+          <span class="font-medium">Jenny</span>
+          <span class="text-gray-500 text-sm">myEmail@gmail.com</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="flex-grow flex justify-between">
+    <!-- <section class="bg-primary  w-1/5 rounded-2xl p-5 shadow-xl">
+      <app-upload-dataset></app-upload-dataset>
+    </section> -->
+    <section class="bg-primary w-full rounded-2xl p-5 shadow-xl">
+      <!-- <app-project-dashboard></app-project-dashboard> -->
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
