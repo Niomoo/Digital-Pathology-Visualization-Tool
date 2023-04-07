@@ -10,7 +10,7 @@ class User(models.Model):
 
 class Project(models.Model):
   p_id = models.AutoField(primary_key=True)
-  u_id = models.ForeignKey(User, on_delete=models.CASCADE)
+  u_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
   title = models.CharField(max_length=255)
   type = models.CharField(max_length=255)
   path = models.CharField(max_length=255)

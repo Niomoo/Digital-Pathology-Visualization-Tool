@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectListService } from '../../../@services/project-list.service';
-import { Project, ProjectArray } from './project-list';
+import { Project, ProjectArray } from '../../../@models/project-list.model';
 
 @Component({
   selector: 'app-project-list',
@@ -28,26 +28,32 @@ export class ProjectListComponent implements OnInit {
           {
             'title': 'BRCA',
             'type': 'WSI images',
+            'path': '/'
           },
           {
             'title': 'LUAD',
             'type': 'WSI images',
+            'path': '/'
           },
           {
             'title': 'KIRC',
             'type': 'WSI images',
+            'path': '/'
           },
           {
             'title': 'UCEC',
             'type': 'WSI images',
+            'path': '/'
           },
           {
             'title': 'GBM',
             'type': 'WSI images',
+            'path': '/'
           },
           {
             'title': 'HNSC',
             'type': 'WSI images',
+            'path': '/'
           },
         ];
         console.log(error);

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { ProjectArray } from '../home/project-dashboard/project-list/project-list';
+import { ProjectArray } from '../@models/project-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class ProjectListService {
   constructor(private http: HttpClient) { }
 
   getProject(): Observable<ProjectArray> {
-    return this.http.get(this.url + 'projects/') as Observable<ProjectArray>;
+    return this.http.get(this.url + 'project/') as Observable<ProjectArray>;
   }
 }
