@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectListService } from './project-list.service';
+import { ProjectListService } from '../../../@services/project-list.service';
 import { Project, ProjectArray } from './project-list';
 
 @Component({
@@ -12,14 +12,14 @@ export class ProjectListComponent implements OnInit {
   projectData: ProjectArray = [];
   project: Project|null = null;
 
-  constructor(private projectListService: ProjectListService) {}
+  constructor(private ProjectListService: ProjectListService) {}
 
   ngOnInit() : void {
     this.getProjectList();
   }
 
   getProjectList() {
-    this.projectListService.getProject().subscribe({
+    this.ProjectListService.getProject().subscribe({
       next: (data) => {
         this.projectData = data;
       },
@@ -53,5 +53,8 @@ export class ProjectListComponent implements OnInit {
         console.log(error);
       }
     })
+  }
+  test() {
+    console.log(this.project);
   }
 }
