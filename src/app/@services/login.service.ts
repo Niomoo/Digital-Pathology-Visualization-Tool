@@ -6,7 +6,8 @@ import { Login } from '../@models/login.model';
   providedIn: 'root'
 })
 export class LoginService {
-  private url = 'http://140.116.247.175:8000/api/';
+  private url = 'http://localhost:8000/';
+  // private url = 'http://140.116.247.175:8000/';
   constructor(private http: HttpClient) { }
 
   login(value: Login) {

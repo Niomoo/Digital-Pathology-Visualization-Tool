@@ -8,7 +8,8 @@ import { ProjectArray } from '../@models/project-list.model';
   providedIn: 'root'
 })
 export class ProjectListService {
-  private url = 'http://140.116.247.175:8000/api/';
+  private url = 'http://localhost:8000/';
+  // private url = 'http://140.116.247.175:8000/';
   constructor(private http: HttpClient) { }
 
   getProject(): Observable<ProjectArray> {
