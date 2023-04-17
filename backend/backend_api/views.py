@@ -12,12 +12,9 @@ class UserListCreateAPIView(generics.ListCreateAPIView):
 class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-class UserViewSet(viewsets.ModelViewSet):
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
 
 @api_view(['GET', 'POST'])
-def user_list(request):
+def user_list(request, format=None):
   if request.method == 'GET':
     users = User.objects.all()
     serializer= UserSerializer(users, many=True)
@@ -27,7 +24,7 @@ def user_list(request):
     if serializer.is_valid():
       serializer.save()
       return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_404_BAR_REQUEST)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ProjectListCreateAPIView(generics.ListCreateAPIView):
@@ -36,6 +33,14 @@ class ProjectListCreateAPIView(generics.ListCreateAPIView):
 class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
   queryset = Project.objects.all()
   serializer_class = ProjectSerializer
+
+@api_view(['GET'])
+def project_list(request, pk, format=None):
+  if request.method == 'GET':
+    user = User.objects.get(name=pk)
+    projects = Project.objects.filter(u_id=user.u_id)
+    serializer= ProjectSerializer(projects, many=True)
+    return Response(serializer.data)
 
 class ImageListCreateAPIView(generics.ListCreateAPIView):
   queryset = Image.objects.all()
