@@ -13,19 +13,26 @@ class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
 
-@api_view(['GET', 'POST'])
-def user_list(request, format=None):
-  if request.method == 'GET':
-    users = User.objects.all()
-    serializer= UserSerializer(users, many=True)
-    return Response(serializer.data)
-  elif request.method == 'POST':
+@api_view(['POST'])
+def sign_up(request, format=None):
+  if request.method == 'POST':
     serializer = UserSerializer(data = request.data)
     if serializer.is_valid():
       serializer.save()
       return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET', 'POST'])
+def user_list(request, format=None):
+  users = User.objects.all()
+  if request.method == 'GET':
+    serializer= UserSerializer(users, many=True)
+    return Response(serializer.data)
+  elif request.method == 'POST':
+    user = User.objects.filter(mail=request.POST.get('mail'), password=request.POST.get('password'))
+    serializer = UserSerializer(user, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+  return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectListCreateAPIView(generics.ListCreateAPIView):
   queryset = Project.objects.all()
@@ -37,7 +44,7 @@ class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 @api_view(['GET'])
 def project_list(request, pk, format=None):
   if request.method == 'GET':
-    user = User.objects.get(name=pk)
+    user = User.objects.get(mail=pk)
     projects = Project.objects.filter(u_id=user.u_id)
     serializer= ProjectSerializer(projects, many=True)
     return Response(serializer.data)

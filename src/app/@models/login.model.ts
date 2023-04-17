@@ -1,5 +1,5 @@
-export interface Login {
-  name: string;
+export interface LoginPost {
+  mail: string;
   password: string;
 }
 

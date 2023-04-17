@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginPost } from '../@models/login.model';
+import { LoginService } from '../@services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router:Router) {}
+  loginValue: LoginPost = {
+    mail: '',
+    password: ''
+  };
+  constructor(private router: Router, private loginService: LoginService) {}
 
   ngOnInit(): void {
   }
 
   login() {
-    this.router.navigateByUrl('/home');
+    this.loginService.accountLogin(this.loginValue).subscribe((data: any) => {
+      if(data.status == 200) {
+        this.router.navigateByUrl('/home');
+      } else {
+        alert(data.message);
+      }
+    })
   }
 
 }
