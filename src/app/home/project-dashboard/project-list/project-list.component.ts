@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectListComponent implements OnInit {
 
-  mail = '';
+  id = 0;
   projectData: ProjectArray = [];
   project: Project|null = null;
 
@@ -18,44 +18,50 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() : void {
     this.route.queryParams.subscribe(params => {
-      this.mail = params['mail'];
+      this.id = params['id'];
     });
     this.getProjectList();
   }
 
   getProjectList() {
-    this.ProjectListService.getProject(this.mail).subscribe({
+    this.ProjectListService.getProject(this.id).subscribe({
       next: (data) => {
         this.projectData = data;
       },
       error: (error) => {
         this.projectData = [
           {
+            'p_id': 1,
             'title': 'BRCA',
             'type': 'WSI images',
             'path': '/'
           },
           {
+            'p_id': 2,
             'title': 'LUAD',
             'type': 'WSI images',
             'path': '/'
           },
           {
+            'p_id': 3,
             'title': 'KIRC',
             'type': 'WSI images',
             'path': '/'
           },
           {
+            'p_id': 4,
             'title': 'UCEC',
             'type': 'WSI images',
             'path': '/'
           },
           {
+            'p_id': 5,
             'title': 'GBM',
             'type': 'WSI images',
             'path': '/'
           },
           {
+            'p_id': 6,
             'title': 'HNSC',
             'type': 'WSI images',
             'path': '/'
@@ -65,7 +71,7 @@ export class ProjectListComponent implements OnInit {
       }
     })
   }
-  test() {
-    console.log(this.project);
+  test(project: Project) {
+    console.log(project);
   }
 }

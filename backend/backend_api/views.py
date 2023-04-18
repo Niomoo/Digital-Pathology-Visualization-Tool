@@ -34,7 +34,7 @@ def user_list(request, format=None):
     projects = Project.objects.filter(u_id=user.u_id)
     serializer = ProjectSerializer(projects, many=True)
     return JsonResponse({
-      'message': 'success',
+      'message': user.u_id,
       'status': status.HTTP_200_OK
     })
   return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -49,8 +49,7 @@ class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 @api_view(['GET'])
 def project_list(request, pk, format=None):
   if request.method == 'GET':
-    user = User.objects.get(mail=pk)
-    projects = Project.objects.filter(u_id=user.u_id)
+    projects = Project.objects.filter(u_id=pk)
     serializer= ProjectSerializer(projects, many=True)
     return Response(serializer.data)
 

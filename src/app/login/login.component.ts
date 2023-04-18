@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       if(data.status == 200) {
         this.router.navigate(['home'], {
           queryParams: {
-            mail: this.loginValue.mail
+            id: data.message
           }
         });
       } else {

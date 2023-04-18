@@ -6,7 +6,7 @@ from backend_api import views
 urlpatterns = [
     path('signup/', views.sign_up),
     path('users/', views.user_list),
-    path('projects/<str:pk>', views.project_list),
+    path('projects/<int:pk>', views.project_list),
     # path('project/', views.ProjectListCreateAPIView.as_view(), name='project-list'),
     # path('project/<int:pk>', views.ProjectDetailAPIView.as_view(), name='project-detail'),
     path('image/', views.UserListCreateAPIView.as_view(), name='image-list'),

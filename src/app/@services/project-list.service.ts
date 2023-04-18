@@ -12,7 +12,7 @@ export class ProjectListService {
   private url = 'http://140.116.247.175:8000/';
   constructor(private http: HttpClient) { }
 
-  getProject(mail: string): Observable<ProjectArray> {
-    return this.http.get(this.url + 'projects/' + mail) as Observable<ProjectArray>;
+  getProject(id: number): Observable<ProjectArray> {
+    return this.http.get(this.url + 'projects/' + id) as Observable<ProjectArray>;
   }
 }

@@ -16,10 +16,10 @@ class ProjectSerializer(serializers.ModelSerializer):
   images = ImageSerializer(many=True, read_only=True)
   class Meta:
     model = Project
-    fields = ['title', 'type', 'path', 'images']
+    fields = ['p_id', 'title', 'type', 'path', 'images']
 
 class UserSerializer(serializers.ModelSerializer):
   projects = ProjectSerializer(many=True, read_only=True)
   class Meta:
     model = User
-    fields = ['name', 'mail', 'password', 'projects']
+    fields = ['u_id', 'name', 'mail', 'password', 'projects']
