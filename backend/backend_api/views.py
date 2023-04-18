@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from rest_framework import generics, viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -29,9 +30,13 @@ def user_list(request, format=None):
     serializer= UserSerializer(users, many=True)
     return Response(serializer.data)
   elif request.method == 'POST':
-    user = User.objects.filter(mail=request.POST.get('mail'), password=request.POST.get('password'))
-    serializer = UserSerializer(user, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    user = User.objects.get(mail=request.data['mail'], password=request.data['password'])
+    projects = Project.objects.filter(u_id=user.u_id)
+    serializer = ProjectSerializer(projects, many=True)
+    return JsonResponse({
+      'message': 'success',
+      'status': status.HTTP_200_OK
+    })
   return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectListCreateAPIView(generics.ListCreateAPIView):

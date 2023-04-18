@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectListService } from '../../../@services/project-list.service';
 import { Project, ProjectArray } from '../../../@models/project-list.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -9,17 +10,21 @@ import { Project, ProjectArray } from '../../../@models/project-list.model';
 })
 export class ProjectListComponent implements OnInit {
 
+  mail = '';
   projectData: ProjectArray = [];
   project: Project|null = null;
 
-  constructor(private ProjectListService: ProjectListService) {}
+  constructor(private route: ActivatedRoute, private ProjectListService: ProjectListService) {}
 
   ngOnInit() : void {
+    this.route.queryParams.subscribe(params => {
+      this.mail = params['mail'];
+    });
     this.getProjectList();
   }
 
   getProjectList() {
-    this.ProjectListService.getProject().subscribe({
+    this.ProjectListService.getProject(this.mail).subscribe({
       next: (data) => {
         this.projectData = data;
       },

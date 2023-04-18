@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.accountLogin(this.loginValue).subscribe((data: any) => {
       if(data.status == 200) {
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['home'], {
+          queryParams: {
+            mail: this.loginValue.mail
+          }
+        });
       } else {
         alert(data.message);
       }

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ProjectDashboardComponent,
     children: [
       {
-        path: ':type',
+        path: ':mail',
         component: ProjectListComponent
       },
     ]
