@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectListService } from '../../../@services/project-list.service';
 import { Project, ProjectArray } from '../../../@models/project-list.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -14,7 +14,7 @@ export class ProjectListComponent implements OnInit {
   projectData: ProjectArray = [];
   project: Project|null = null;
 
-  constructor(private route: ActivatedRoute, private ProjectListService: ProjectListService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private ProjectListService: ProjectListService) {}
 
   ngOnInit() : void {
     this.route.queryParams.subscribe(params => {
@@ -71,7 +71,13 @@ export class ProjectListComponent implements OnInit {
       }
     })
   }
-  test(project: Project) {
+  edit(project: Project) {
     console.log(project);
+    this.router.navigate(['..', 'firstJudgement'], {
+      relativeTo: this.route,
+      queryParams: {
+        pid: project.p_id
+      }
+    })
   }
 }
