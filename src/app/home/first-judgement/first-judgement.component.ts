@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
-import { Project } from '../../@models/project-list.model';
+import { Project } from 'src/app/@models/project-list.model';
 
 @Component({
   selector: 'app-first-judgement',
@@ -12,7 +12,7 @@ export class FirstJudgementComponent implements OnInit{
 
   project: Project|null = null;
 
-  constructor(private route: ActivatedRoute, private ngZone: NgZone) { }
+  constructor(private route: ActivatedRoute, private router: Router, private ngZone: NgZone) { }
 
   ngOnInit(): void {
 
@@ -26,7 +26,7 @@ export class FirstJudgementComponent implements OnInit{
         tileSources: {
           Image: {
             xmlns: "http://schemas.microsoft.com/deepzoom/2008",
-            Url: "/assets/svs/TCGA-05-4245-01A-01-TS1.bf71c76b-e802-4a7a-b6c3-c5f46212fab0_files/",
+            Url: "/assets/svs/TCGA-BRCA_files/",
             Overlap: "1",
             TileSize: "254",
             Format: "jpeg",
@@ -39,5 +39,18 @@ export class FirstJudgementComponent implements OnInit{
         }
       })
     );
+  }
+  back() {
+    this.router.navigate(['..'], {
+      relativeTo: this.route,
+    });
+  }
+  
+  next() {
+    this.router.navigate(['..', 'secondJudgement'], {
+      relativeTo: this.route,
+      queryParams: {
+      }
+    });
   }
 }
