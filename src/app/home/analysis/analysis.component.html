@@ -1,1 +1,40 @@
-<p>analysis works!</p>
+<div class="flex flex-col">
+  <div class="font-semibold text-xl">Lung cancer</div>
+  <div class="font-normal text-sm text-gray-500">Display the judgement analysis.</div>
+  <div class="h-full grid grid-rows-12 grid-cols-3 grid-flow-row rounded-lg divide-y bg-white mt-3">
+    <div class="p-4 col-span-3 text-lg text-black font-medium">Result</div>
+    <div class="p-4 row-span-10 col-span-2">
+      <div class="border-dashed border bg-blue-500/10 border-blue-500 rounded-xl h-full">
+        <div id="openseadragon1" style="width:100%; height:100%;"></div>
+      </div>
+    </div>
+    <div class="p-4 row-span-10">
+      <div class="border-dashed border border-blue-500 rounded-xl h-full">
+        <div class="grid grid-cols-2 ">
+          <div class="p-4 col-span-2 bg-blue-500/10 rounded-t-xl font-medium">Analysis</div>
+          <div class="p-4">First Judge Duration</div>
+          <div class="p-4">00:15:32</div>
+          <div class="p-4">Second Judge Duration</div>
+          <div class="p-4">00:10:24</div>
+          <div class="p-4">First Judge</div>
+          <div class="p-4">LUSC</div>
+          <div class="p-4">Second Judge</div>
+          <div class="p-4">LUAD</div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="p-1 col-span-2 flex justify-center items-center text-2xl">
+      <i class="fa-solid fa-magnifying-glass-plus mx-3"></i>
+      <i class="fa-solid fa-magnifying-glass-minus mx-3"></i>
+      <i class="fa-solid fa-expand mx-3"></i>
+    </div> -->
+    <div class="px-4 col-span-3 flex justify-end items-center">
+      <!-- <div
+        class="px-6 py-2 text-md text-blue-800 border border-blue-500 rounded-xl transition duration-150 ease-in-out hover:text-white hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+        >Back</div> -->
+      <div
+        class="px-6 py-2 text-md bg-blue-500 text-white border border-blue-500 rounded-xl transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+        (click)="next()">Ok</div>
+    </div>
+  </div>
+</div>

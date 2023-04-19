@@ -32,37 +32,37 @@ export class ProjectListComponent implements OnInit {
         this.projectData = [
           {
             'p_id': 1,
-            'title': 'BRCA',
+            'title': 'Breast',
             'type': 'WSI images',
             'path': '/'
           },
           {
             'p_id': 2,
-            'title': 'LUAD',
+            'title': 'Lung',
             'type': 'WSI images',
             'path': '/'
           },
           {
             'p_id': 3,
-            'title': 'KIRC',
+            'title': 'Kidney',
             'type': 'WSI images',
             'path': '/'
           },
           {
             'p_id': 4,
-            'title': 'UCEC',
+            'title': 'Brain',
             'type': 'WSI images',
             'path': '/'
           },
           {
             'p_id': 5,
-            'title': 'GBM',
+            'title': 'Colon',
             'type': 'WSI images',
             'path': '/'
           },
           {
             'p_id': 6,
-            'title': 'HNSC',
+            'title': 'Skin',
             'type': 'WSI images',
             'path': '/'
           },

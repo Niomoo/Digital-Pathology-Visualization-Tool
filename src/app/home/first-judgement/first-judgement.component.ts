@@ -34,7 +34,6 @@ export class FirstJudgementComponent implements OnInit{
               Height: "13527",
               Width: "14000"
             }
-
           }
         }
       })
@@ -45,7 +44,7 @@ export class FirstJudgementComponent implements OnInit{
       relativeTo: this.route,
     });
   }
-  
+
   next() {
     this.router.navigate(['..', 'secondJudgement'], {
       relativeTo: this.route,
