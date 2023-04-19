@@ -15,7 +15,8 @@ export class HomeGuard implements CanActivate {
       if(!canActivate) {
         alert('使用者錯誤');
       }
-      return canActivate;
+      // return canActivate;
+      return true;
   }
 
 }
