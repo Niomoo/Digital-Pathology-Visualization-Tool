@@ -36,6 +36,7 @@ export class AnalysisComponent implements OnInit {
     this.router.navigate(['..'], {
       relativeTo: this.route,
       queryParams: {
+        id: 1
       }
     });
   }

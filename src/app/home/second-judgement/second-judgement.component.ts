@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
 import { Project } from 'src/app/@models/project-list.model';
+import { ProjectListService } from 'src/app/@services/project-list.service';
 
 @Component({
   selector: 'app-second-judgement',
@@ -11,14 +12,17 @@ import { Project } from 'src/app/@models/project-list.model';
 export class SecondJudgementComponent implements OnInit{
 
   project: Project|null = null;
-
-  constructor(private route: ActivatedRoute, private router: Router, private ngZone: NgZone) { }
+  constructor(private projectListService: ProjectListService, private route: ActivatedRoute, private router: Router, private ngZone: NgZone) { }
+  get counterString() {
+    return this.projectListService.counterString;
+  }
 
   ngOnInit(): void {
 
     this.route.queryParams.subscribe(params => {
       console.log(params);
     })
+
     const viewer = this.ngZone.runOutsideAngular(() =>
       OpenSeadragon({
         id: "openseadragon1",
@@ -59,15 +63,20 @@ export class SecondJudgementComponent implements OnInit{
         }
       })
     );
+
+    this.projectListService.startTimer();
+
   }
 
   back() {
+    this.projectListService.stopTimer(1);
     this.router.navigate(['..', 'firstJudgement'], {
       relativeTo: this.route,
     });
   }
 
   next() {
+    this.projectListService.stopTimer(1);
     this.router.navigate(['..', 'analysis'], {
       relativeTo: this.route,
       queryParams: {

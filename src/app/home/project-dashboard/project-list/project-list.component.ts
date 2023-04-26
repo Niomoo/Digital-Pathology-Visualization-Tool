@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectListService } from '../../../@services/project-list.service';
+import { ProjectAPIService } from '../../../@services/project-api.service';
 import { Project, ProjectArray } from '../../../@models/project-list.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class ProjectListComponent implements OnInit {
   projectData: ProjectArray = [];
   project: Project|null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ProjectListService: ProjectListService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private projectAPIService: ProjectAPIService) {}
 
   ngOnInit() : void {
     this.route.queryParams.subscribe(params => {
@@ -24,7 +24,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   getProjectList() {
-    this.ProjectListService.getProject(this.id).subscribe({
+    this.projectAPIService.getProject(this.id).subscribe({
       next: (data) => {
         this.projectData = data;
       },

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.accountLogin(this.loginValue).subscribe((data: any) => {
       if(data.status == 200) {
+        alert('登入成功');
         this.router.navigate(['home'], {
           queryParams: {
             id: data.message
