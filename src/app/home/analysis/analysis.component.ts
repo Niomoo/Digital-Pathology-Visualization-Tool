@@ -15,6 +15,10 @@ export class AnalysisComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone) { }
 
+  get title() {
+    return this.projectListService.selectProject.title;
+  }
+
   get firstJudge() {
     return this.projectListService.firstJudge;
   }

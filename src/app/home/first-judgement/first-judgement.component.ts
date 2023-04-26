@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
 import { Project } from 'src/app/@models/project-list.model';
-import { ProjectListService } from './../../@services/project-list.service';
+import { ProjectListService } from 'src/app/@services/project-list.service';
 
 @Component({
   selector: 'app-first-judgement',
@@ -24,6 +24,10 @@ export class FirstJudgementComponent implements OnInit{
     private router: Router,
     private ngZone: NgZone,
     private fb: FormBuilder) { }
+
+  get title() {
+    return this.projectListService.selectProject.title;
+  }
 
   get counterString() {
     return this.projectListService.counterString;

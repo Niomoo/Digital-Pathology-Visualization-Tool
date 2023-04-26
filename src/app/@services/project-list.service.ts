@@ -8,7 +8,8 @@ import { Counter } from '../@models/counter.model';
   providedIn: 'root'
 })
 export class ProjectListService {
-  projectList: Project[] = [];
+  projectList: ProjectArray = [];
+  selectProject!: Project;
   counter!: Counter;
   counterString: string = '';
   firstJudge: string = '';
@@ -18,13 +19,14 @@ export class ProjectListService {
   isRunning: boolean = true;
 
   startTimer(): void {
+    this.isRunning = true;
     this.counter = {
       hour: 0,
       minute: 0,
       second: 0
     };
-    timer(0, 1000).subscribe(ellapsedCycles => {
-      if(this.isRunning) {
+    if(this.isRunning) {
+      timer(0, 1000).subscribe(ellapsedCycles => {
         if(this.counter.second == 59) {
           this.counter.minute += 1;
           this.counter.second = 0;
@@ -38,8 +40,8 @@ export class ProjectListService {
         this.counterString = (this.counter.hour < 10 ? '0' + this.counter.hour: this.counter.hour) + ':'
           + (this.counter.minute < 10 ? '0' + this.counter.minute : this.counter.minute) + ':'
           + (this.counter.second < 10 ? '0' + this.counter.second : this.counter.second);
-      }
-    })
+      })
+    }
   }
   stopTimer(status: number): void {
     this.isRunning = false;

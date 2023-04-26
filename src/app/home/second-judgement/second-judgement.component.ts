@@ -25,6 +25,10 @@ export class SecondJudgementComponent implements OnInit{
     private ngZone: NgZone,
     private fb: FormBuilder) { }
 
+  get title() {
+    return this.projectListService.selectProject.title;
+  }
+
   get counterString() {
     return this.projectListService.counterString;
   }
