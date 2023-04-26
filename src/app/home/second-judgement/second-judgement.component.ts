@@ -84,6 +84,11 @@ export class SecondJudgementComponent implements OnInit{
       })
     );
 
+    viewer.addHandler("zoom", function(event) {
+      console.log(event);
+      viewer2.viewport.zoomTo(event.zoom, event.refPoint, event.immediately);
+    })
+
     this.projectListService.startTimer();
 
   }
