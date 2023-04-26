@@ -9,6 +9,7 @@ import { FirstJudgementComponent } from './first-judgement/first-judgement.compo
 import { ProjectListComponent } from './project-dashboard/project-list/project-list.component';
 import { SecondJudgementComponent } from './second-judgement/second-judgement.component';
 import { UploadDatasetComponent } from './upload-dataset/upload-dataset.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { UploadDatasetComponent } from './upload-dataset/upload-dataset.componen
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

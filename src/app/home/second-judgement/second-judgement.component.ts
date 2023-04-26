@@ -1,4 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
 import { Project } from 'src/app/@models/project-list.model';
@@ -11,8 +12,19 @@ import { ProjectListService } from 'src/app/@services/project-list.service';
 })
 export class SecondJudgementComponent implements OnInit{
 
-  project: Project|null = null;
-  constructor(private projectListService: ProjectListService, private route: ActivatedRoute, private router: Router, private ngZone: NgZone) { }
+  judgeForm!: FormGroup;
+  judges = [
+    { id: 1, name: 'LUAD'},
+    { id: 2, name: 'LUSC'},
+    { id: 3, name: 'None of the above'}
+  ];
+
+  constructor(private projectListService: ProjectListService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private ngZone: NgZone,
+    private fb: FormBuilder) { }
+
   get counterString() {
     return this.projectListService.counterString;
   }
@@ -22,6 +34,10 @@ export class SecondJudgementComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       console.log(params);
     })
+
+    this.judgeForm = this.fb.group({
+      judge: [null]
+    });
 
     const viewer = this.ngZone.runOutsideAngular(() =>
       OpenSeadragon({
@@ -77,10 +93,10 @@ export class SecondJudgementComponent implements OnInit{
 
   next() {
     this.projectListService.stopTimer(1);
+    this.projectListService.secondJudge = this.judgeForm.value.judge;
+
     this.router.navigate(['..', 'analysis'], {
       relativeTo: this.route,
-      queryParams: {
-      }
     });
   }
 }

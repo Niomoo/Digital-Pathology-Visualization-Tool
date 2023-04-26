@@ -13,8 +13,8 @@ export class ProjectListService {
   counterString: string = '';
   firstJudge: string = '';
   secondJudge: string = '';
-  firstDuration!: Counter;
-  secondDuration!: Counter;
+  firstDuration: string = '';
+  secondDuration: string = '';
   isRunning: boolean = true;
 
   startTimer(): void {
@@ -45,10 +45,10 @@ export class ProjectListService {
     this.isRunning = false;
     switch(status) {
       case 0:
-        this.firstDuration = this.counter;
+        this.firstDuration = this.counterString;
         break;
       case 1:
-        this.secondDuration = this.counter;
+        this.secondDuration = this.counterString;
         break;
       default:
         break;

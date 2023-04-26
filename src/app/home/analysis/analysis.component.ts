@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
+import { ProjectListService } from 'src/app/@services/project-list.service';
 
 @Component({
   selector: 'app-analysis',
@@ -9,7 +10,26 @@ import * as OpenSeadragon from 'openseadragon';
 })
 export class AnalysisComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private ngZone: NgZone) { }
+  constructor(private projectListService: ProjectListService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private ngZone: NgZone) { }
+
+  get firstJudge() {
+    return this.projectListService.firstJudge;
+  }
+
+  get secondJudge() {
+    return this.projectListService.secondJudge;
+  }
+
+  get firstDuration() {
+    return this.projectListService.firstDuration;
+  }
+
+  get secondDuration() {
+    return this.projectListService.secondDuration;
+  }
 
   ngOnInit(): void {
     const viewer = this.ngZone.runOutsideAngular(() =>
