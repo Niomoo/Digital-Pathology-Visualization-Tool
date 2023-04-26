@@ -25,26 +25,23 @@ export class ProjectListService {
       minute: 0,
       second: 0
     };
-    if(this.isRunning) {
-      timer(0, 1000).subscribe(ellapsedCycles => {
-        if(this.counter.second == 59) {
-          this.counter.minute += 1;
-          this.counter.second = 0;
-          if(this.counter.minute == 59) {
-            this.counter.hour += 1;
-            this.counter.minute = 0;
-          }
-        } else {
-          this.counter.second += 1;
+    timer(0, 1000).subscribe(ellapsedCycles => {
+      if(this.counter.second == 59) {
+        this.counter.minute += 1;
+        this.counter.second = 0;
+        if(this.counter.minute == 59) {
+          this.counter.hour += 1;
+          this.counter.minute = 0;
         }
-        this.counterString = (this.counter.hour < 10 ? '0' + this.counter.hour: this.counter.hour) + ':'
-          + (this.counter.minute < 10 ? '0' + this.counter.minute : this.counter.minute) + ':'
-          + (this.counter.second < 10 ? '0' + this.counter.second : this.counter.second);
-      })
-    }
+      } else {
+        this.counter.second += 1;
+      }
+      this.counterString = (this.counter.hour < 10 ? '0' + this.counter.hour: this.counter.hour) + ':'
+        + (this.counter.minute < 10 ? '0' + this.counter.minute : this.counter.minute) + ':'
+        + (this.counter.second < 10 ? '0' + this.counter.second : this.counter.second);
+    })
   }
   stopTimer(status: number): void {
-    this.isRunning = false;
     switch(status) {
       case 0:
         this.firstDuration = this.counterString;

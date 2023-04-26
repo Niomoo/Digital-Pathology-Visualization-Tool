@@ -23,6 +23,9 @@ export class ProjectListComponent implements OnInit {
   ngOnInit() : void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
+      if(this.id == undefined) {
+        this.id = 1;
+      }
     });
     this.getProjectList();
   }
