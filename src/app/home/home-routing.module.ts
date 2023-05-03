@@ -8,6 +8,8 @@ import { SecondJudgementComponent } from './second-judgement/second-judgement.co
 import { AnalysisComponent } from './analysis/analysis.component';
 import { HomeComponent } from './home.component';
 import { HomeGuard } from './home.guard';
+import { HistoryComponent } from './history/history.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -22,27 +24,35 @@ const routes: Routes = [
       },
       {
         path: appPath.manage.projectDashboard,
-        component: ProjectDashboardComponent
+        component: ProjectDashboardComponent,
       },
       {
         path: appPath.manage.firstJudgement,
-        component: FirstJudgementComponent
+        component: FirstJudgementComponent,
       },
       {
         path: appPath.manage.secondJudgement,
-        component: SecondJudgementComponent
+        component: SecondJudgementComponent,
       },
       {
         path: appPath.manage.analysis,
-        component: AnalysisComponent
+        component: AnalysisComponent,
+      },
+      {
+        path: appPath.manage.history,
+        component: HistoryComponent,
+      },
+      {
+        path: appPath.manage.statistics,
+        component: StatisticsComponent,
       },
       {
         path: '**',
         redirectTo: appPath.manage.projectDashboard,
-        pathMatch: 'full'
-      }
-    ]
-  }
+        pathMatch: 'full',
+      },
+    ],
+  },
 ];
 
 @NgModule({

@@ -6,5 +6,7 @@ export const appPath = {
     firstJudgement: 'firstJudgement',
     secondJudgement: 'secondJudgement',
     analysis: 'analysis',
+    history: 'history',
+    statistics: 'statistics'
   },
 };

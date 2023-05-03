@@ -10,6 +10,9 @@ import { ProjectListComponent } from './project-dashboard/project-list/project-l
 import { SecondJudgementComponent } from './second-judgement/second-judgement.component';
 import { UploadDatasetComponent } from './upload-dataset/upload-dataset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HistoryComponent } from './history/history.component';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SecondJudgementComponent,
     UploadDatasetComponent,
     DataDetailComponent,
+    AnalysisComponent,
+    HistoryComponent,
+    StatisticsComponent
   ],
   imports: [
     CommonModule,
