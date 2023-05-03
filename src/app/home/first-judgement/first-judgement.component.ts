@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
+import { interval } from 'rxjs';
 import { Project } from 'src/app/@models/project-list.model';
 import { ProjectListService } from 'src/app/@services/project-list.service';
 
@@ -18,6 +19,7 @@ export class FirstJudgementComponent implements OnInit{
     { id: 2, name: 'LUSC'},
     { id: 3, name: 'None of the above'}
   ];
+  counterString = '00:00:00';
 
   constructor(private projectListService: ProjectListService,
     private route: ActivatedRoute,
@@ -27,10 +29,6 @@ export class FirstJudgementComponent implements OnInit{
 
   get title() {
     return this.projectListService.selectProject.title;
-  }
-
-  get counterString() {
-    return this.projectListService.counterString;
   }
 
   ngOnInit(): void {
@@ -62,18 +60,24 @@ export class FirstJudgementComponent implements OnInit{
         }
       })
     );
-    this.projectListService.startTimer();
 
+    const startTime = new Date();
+    interval(1000).subscribe(()=> {
+      const currentTime = new Date();
+      const timeDiff = currentTime.getTime() - startTime.getTime();
+      this.counterString = this.projectListService.formatTime(timeDiff);
+    });
   }
+
   back() {
-    this.projectListService.stopTimer(0);
+    this.counterString = '00:00:00';
     this.router.navigate(['..'], {
       relativeTo: this.route,
     });
   }
 
   next() {
-    this.projectListService.stopTimer(0);
+    this.projectListService.firstDuration = this.counterString;
     this.projectListService.firstJudge = this.judgeForm.value.judge;
 
     this.router.navigate(['..', 'secondJudgement'], {
