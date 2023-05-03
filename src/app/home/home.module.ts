@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HistoryComponent } from './history/history.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     CommonModule,
     HomeRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgApexchartsModule
   ]
 })
 export class HomeModule { }

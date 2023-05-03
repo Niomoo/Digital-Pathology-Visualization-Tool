@@ -1,1 +1,21 @@
-<p>statistics works!</p>
+<div class="flex flex-col">
+  <div class="font-semibold text-xl">Statistics</div>
+  <div class="font-normal text-sm text-gray-500">Here is the statistics of the judgement.</div>
+  <div class="h-full grid grid-cols-2 rounded-lg divide-y bg-white mt-3">
+    <div class="p-4 text-lg text-black font-medium">Judgement</div>
+    <div class="p-4 text-lg text-black font-medium">Duration</div>
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [labels]="chartOptions.labels"
+        [responsive]="chartOptions.responsive">
+      </apx-chart>
+    </div>
+    <div id="linechart">
+      <apx-chart
+        [series]="lineChartOptions.series"
+        [chart]="lineChartOptions.chart"></apx-chart>
+    </div>
+  </div>
+</div>

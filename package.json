@@ -19,7 +19,9 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@types/openseadragon": "^3.0.5",
+    "apexcharts": "^3.40.0",
     "marky": "^1.2.5",
+    "ng-apexcharts": "^1.7.6",
     "openseadragon": "^4.0.0",
     "rxjs": "~7.8.0",
     "zone.js": "~0.12.0"
