@@ -1,57 +1,59 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
-import { ProjectListService } from 'src/app/@services/project-list.service';
+import { RecordService } from 'src/app/@services/record.service';
 
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
 })
 export class AnalysisComponent implements OnInit {
-
-  constructor(private projectListService: ProjectListService,
+  constructor(
+    private recordService: RecordService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone
+  ) {}
 
   get title() {
-    return this.projectListService.selectProject.title;
+    return this.recordService.selectProject.title;
   }
 
   get firstJudge() {
-    return this.projectListService.firstJudge;
+    return this.recordService.firstJudge;
   }
 
   get secondJudge() {
-    return this.projectListService.secondJudge;
+    return this.recordService.secondJudge;
   }
 
   get firstDuration() {
-    return this.projectListService.firstDuration;
+    return this.recordService.firstDuration;
   }
 
   get secondDuration() {
-    return this.projectListService.secondDuration;
+    return this.recordService.secondDuration;
   }
 
   ngOnInit(): void {
     const viewer = this.ngZone.runOutsideAngular(() =>
-    OpenSeadragon({
-      id: "openseadragon1",
-      prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/",
-      tileSources: {
-        Image: {
-          xmlns: "http://schemas.microsoft.com/deepzoom/2008",
-          Url: "/assets/svs/TCGA-BRCA_files/",
-          Overlap: "1",
-          TileSize: "254",
-          Format: "jpeg",
-          Size: {
-            Height: "13527",
-              Width: "14000"
-            }
-          }
-        }
+      OpenSeadragon({
+        id: 'openseadragon1',
+        prefixUrl:
+          'https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/',
+        tileSources: {
+          Image: {
+            xmlns: 'http://schemas.microsoft.com/deepzoom/2008',
+            Url: '/assets/svs/TCGA-BRCA_files/',
+            Overlap: '1',
+            TileSize: '254',
+            Format: 'jpeg',
+            Size: {
+              Height: '13527',
+              Width: '14000',
+            },
+          },
+        },
       })
     );
   }
@@ -59,8 +61,8 @@ export class AnalysisComponent implements OnInit {
     this.router.navigate(['..'], {
       relativeTo: this.route,
       queryParams: {
-        id: 1
-      }
+        id: 1,
+      },
     });
   }
 }

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { interval } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Project, ProjectArray } from '../@models/project-list.model';
+import { Project, ProjectArray } from '../@models/project.model';
 import { Counter } from '../@models/counter.model';
+import { Image, ImageArray } from '../@models/image.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ProjectListService {
-  projectList: ProjectArray = [];
+export class RecordService {
   selectProject!: Project;
+  projectList: ProjectArray = [];
+  selectImage!: Image;
+  imageList: ImageArray = [];
   counter!: Counter;
   firstJudge: string = '';
   secondJudge: string = '';
@@ -23,7 +24,9 @@ export class ProjectListService {
     const secondPart = second % 60;
     const minutePart = minute % 60;
     const hourPart = hour % 60;
-    return `${this.formatNumber(hourPart)}:${this.formatNumber(minutePart)}:${this.formatNumber(secondPart)}`;
+    return `${this.formatNumber(hourPart)}:${this.formatNumber(
+      minutePart
+    )}:${this.formatNumber(secondPart)}`;
   }
 
   formatNumber(num: number): string {
