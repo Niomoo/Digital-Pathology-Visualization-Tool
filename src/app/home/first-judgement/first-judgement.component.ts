@@ -9,7 +9,6 @@ import { ProjectListService } from 'src/app/@services/project-list.service';
 @Component({
   selector: 'app-first-judgement',
   templateUrl: './first-judgement.component.html',
-  styleUrls: ['./first-judgement.component.css']
 })
 export class FirstJudgementComponent implements OnInit{
 

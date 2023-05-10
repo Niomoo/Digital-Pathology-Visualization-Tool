@@ -6,7 +6,6 @@ import { ProjectListService } from 'src/app/@services/project-list.service';
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
-  styleUrls: ['./analysis.component.css']
 })
 export class AnalysisComponent implements OnInit {
 

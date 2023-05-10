@@ -14,12 +14,14 @@ import { HistoryComponent } from './history/history.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ImageListComponent } from './project-dashboard/image-list/image-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     ProjectDashboardComponent,
     ProjectListComponent,
+    ImageListComponent,
     FirstJudgementComponent,
     SecondJudgementComponent,
     UploadDatasetComponent,

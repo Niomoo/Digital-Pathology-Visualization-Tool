@@ -7,13 +7,6 @@ from .serializers import UserSerializer, ProjectSerializer, ImageSerializer, Jud
 # Create your views here.
 
 
-class UserListCreateAPIView(generics.ListCreateAPIView):
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
-class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
-
 @api_view(['POST'])
 def sign_up(request, format=None):
   if request.method == 'POST':
@@ -39,13 +32,6 @@ def user_list(request, format=None):
     })
   return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class ProjectListCreateAPIView(generics.ListCreateAPIView):
-  queryset = Project.objects.all()
-  serializer_class = ProjectSerializer
-class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-  queryset = Project.objects.all()
-  serializer_class = ProjectSerializer
-
 @api_view(['GET'])
 def project_list(request, pk, format=None):
   if request.method == 'GET':
@@ -53,16 +39,20 @@ def project_list(request, pk, format=None):
     serializer= ProjectSerializer(projects, many=True)
     return Response(serializer.data)
 
-class ImageListCreateAPIView(generics.ListCreateAPIView):
-  queryset = Image.objects.all()
-  serializer_class = ImageSerializer
-class ImageDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-  queryset = Image.objects.all()
-  serializer_class = ImageSerializer
-
-class JudgementListCreateAPIView(generics.ListCreateAPIView):
-  queryset = Judgement.objects.all()
-  serializer_class = JudgementSerializer
-class JudgementDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-  queryset = Judgement.objects.all()
-  serializer_class = JudgementSerializer
+@api_view(['GET', 'POST'])
+def judgement_list(request, pk, format=None):
+  if request.method == 'GET':
+    projects = Project.objects.filter(u_id=pk)
+    images = Image.objects.filter(p_id=projects.p_id)
+    judges = Judgement.objects.filter(i_id=images.i_id)
+    serializer= JudgementSerializer(judges, many=True)
+    return Response(serializer.data)
+  elif request.method == 'POST':
+    user = User.objects.get(u_id=request.data['id'])
+    projects = Project.objects.filter(u_id=user.u_id)
+    serializer = ProjectSerializer(projects, many=True)
+    return JsonResponse({
+      'message': user.u_id,
+      'status': status.HTTP_200_OK
+    })
+  return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
