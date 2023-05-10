@@ -1,6 +1,6 @@
 import { ProjectDashboardComponent } from './project-dashboard.component';
 import { ProjectListComponent } from './project-list/project-list.component';
-import { ImageListComponent } from './image-list/image-list.component';
+import { ImageListComponent } from './project-list/image-list/image-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

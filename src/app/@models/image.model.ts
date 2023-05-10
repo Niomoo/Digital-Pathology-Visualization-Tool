@@ -1,5 +1,5 @@
 export interface Image {
-  p_id: number;
+  i_id: number;
   path: string;
   name: string;
 }

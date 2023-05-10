@@ -1,9 +1,12 @@
-<div class="grid grid-cols-4 gap-8 text-center">
-  <div *ngFor="let project of projectData" class="bg-blue-100 h-44 rounded-2xl flex flex-col justify-center items-center">
-    <div class="w-10 h-10 bg-red-400 rounded-xl mb-2"></div>
+<div class="grid grid-cols-4 gap-8 text-center h-1/2">
+  <div *ngFor="let project of projectData"
+    class="bg-blue-100 h-40 rounded-2xl flex flex-col justify-center items-center cursor-pointer hover:border-2 hover:border-blue-500"
+    [ngClass]="{'border-2': selectedProject === project, 'border-blue-500': selectedProject === project}"
+    (click)="showImages(project)">
+    <div class="w-8 h-8 bg-red-400 rounded-xl mb-2"></div>
     <div class="font-medium">{{ project.title }}</div>
     <div class="mb-3 text-sm text-gray-500">{{ project.type }}</div>
-    <div class="text-blue-800 w-full rounded-lg hover:font-medium" (click)="showImages(project)">Select</div>
+    <div class="text-blue-800 w-full rounded-lg">Select</div>
   </div>
 </div>
 <app-image-list *ngIf="display"></app-image-list>

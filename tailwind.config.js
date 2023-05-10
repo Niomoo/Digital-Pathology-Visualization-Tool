@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         main: "url('src/assets/background.svg')",
       },
+      borderColor: {
+        selected: "#F6F8FD",
+      },
       colors: {
         primary: "#F6F8FD",
       },

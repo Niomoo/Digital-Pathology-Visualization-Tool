@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProjectListComponent implements OnInit {
   id = 0;
   projectData: ProjectArray = [];
-  project: Project | null = null;
+  selectedProject: Project | null = null;
   display: Boolean = false;
 
   constructor(
@@ -75,17 +75,9 @@ export class ProjectListComponent implements OnInit {
   }
 
   showImages(project: Project) {
+    this.recordService.selectProject = project;
+    this.selectedProject = project;
     this.display = true;
   }
 
-  edit(project: Project) {
-    this.recordService.selectProject = project;
-
-    this.router.navigate(['..', 'firstJudgement'], {
-      relativeTo: this.route,
-      queryParams: {
-        pid: project.p_id,
-      },
-    });
-  }
 }
