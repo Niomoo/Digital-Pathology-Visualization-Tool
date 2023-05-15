@@ -9,10 +9,10 @@ urlpatterns = [
     path('projects/<int:pk>', views.project_list),
     # path('project/', views.ProjectListCreateAPIView.as_view(), name='project-list'),
     # path('project/<int:pk>', views.ProjectDetailAPIView.as_view(), name='project-detail'),
-    path('image/', views.UserListCreateAPIView.as_view(), name='image-list'),
-    path('image/<int:pk>', views.UserDetailAPIView.as_view(), name='image-detail'),
-    path('judgement/', views.UserListCreateAPIView.as_view(), name='judgement-list'),
-    path('judgement/<int:pk>', views.UserDetailAPIView.as_view(), name='judgement-detail'),
+    # path('image/', views.UserListCreateAPIView.as_view(), name='image-list'),
+    # path('image/<int:pk>', views.UserDetailAPIView.as_view(), name='image-detail'),
+    # path('judgement/', views.UserListCreateAPIView.as_view(), name='judgement-list'),
+    # path('judgement/<int:pk>', views.UserDetailAPIView.as_view(), name='judgement-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -13,13 +13,12 @@ class Project(models.Model):
   u_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
   title = models.CharField(max_length=255)
   type = models.CharField(max_length=255)
-  path = models.CharField(max_length=255)
 
 class Image(models.Model):
   i_id = models.AutoField(primary_key=True)
   p_id = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')
-  tissue = models.CharField(max_length=255, blank=True, null=True)
-  resolution = models.CharField(max_length=10, blank=True, null=True)
+  name = models.CharField(max_length=255)
+  path = models.CharField(max_length=255)
 
 class Judgement(models.Model):
   j_id = models.AutoField(primary_key=True)
