@@ -1,6 +1,6 @@
 export interface Image {
-  i_id: number;
   name: string;
+  path: string;
 }
 
 export interface ImageArray extends Array<Image> {}

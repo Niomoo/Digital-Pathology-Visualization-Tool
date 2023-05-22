@@ -16,7 +16,7 @@ export class AnalysisComponent implements OnInit {
   ) {}
 
   get title() {
-    return this.recordService.selectProject.title;
+    return this.recordService.selectProject$.subscribe();
   }
 
   get firstJudge() {

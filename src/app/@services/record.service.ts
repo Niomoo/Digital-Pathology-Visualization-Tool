@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Project, ProjectArray } from '../@models/project.model';
 import { Counter } from '../@models/counter.model';
 import { Image, ImageArray } from '../@models/image.model';
@@ -7,7 +8,12 @@ import { Image, ImageArray } from '../@models/image.model';
   providedIn: 'root',
 })
 export class RecordService {
-  selectProject!: Project;
+  selectProject = new BehaviorSubject<Project>({
+    p_id: 0,
+    title: 'test',
+    type: 'WSI'
+  });
+  selectProject$ = this.selectProject.asObservable();
   projectList: ProjectArray = [];
   selectImage!: Image;
   imageList: ImageArray = [];
@@ -31,5 +37,9 @@ export class RecordService {
 
   formatNumber(num: number): string {
     return num.toString().padStart(2, '0');
+  }
+
+  updateProject(project: Project) {
+    this.selectProject.next(project);
   }
 }

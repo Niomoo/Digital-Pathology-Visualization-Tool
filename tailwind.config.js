@@ -21,6 +21,11 @@ module.exports = {
         "span-9": "span 9 / span 9",
         "span-10": "span 10 / span 10",
       },
+      height: {
+        "50v": "50vh",
+        "55v": "55vh",
+        "60v": "60vh",
+      }
     },
   },
   plugins: [],

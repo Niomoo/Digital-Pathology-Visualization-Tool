@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-8 text-center h-1/2">
+<div class="grid grid-cols-4 gap-8 text-center">
   <div *ngFor="let project of projectData"
     class="bg-blue-100 h-40 rounded-2xl flex flex-col justify-center items-center cursor-pointer hover:border-2 hover:border-blue-500"
     [ngClass]="{'border-2': selectedProject === project, 'border-blue-500': selectedProject === project}"

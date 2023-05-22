@@ -32,50 +32,42 @@ export class ProjectListComponent implements OnInit {
   }
 
   getProjectList() {
-    this.projectAPIService.getProject(this.id).subscribe({
-      next: (data) => {
-        this.projectData = data;
+    this.projectData = [
+      {
+        p_id: 1,
+        title: 'Breast',
+        type: 'WSI images',
       },
-      error: (error) => {
-        this.projectData = [
-          {
-            p_id: 1,
-            title: 'Breast',
-            type: 'WSI images',
-          },
-          {
-            p_id: 2,
-            title: 'Lung',
-            type: 'WSI images',
-          },
-          {
-            p_id: 3,
-            title: 'Kidney',
-            type: 'WSI images',
-          },
-          {
-            p_id: 4,
-            title: 'Brain',
-            type: 'WSI images',
-          },
-          {
-            p_id: 5,
-            title: 'Colon',
-            type: 'WSI images',
-          },
-          {
-            p_id: 6,
-            title: 'Skin',
-            type: 'WSI images',
-          },
-        ];
-        console.log(error);
+      {
+        p_id: 2,
+        title: 'Lung',
+        type: 'WSI images',
       },
-    });
+      // {
+      //   p_id: 3,
+      //   title: 'Kidney',
+      //   type: 'WSI images',
+      // },
+      {
+        p_id: 4,
+        title: 'Brain',
+        type: 'WSI images',
+      },
+      // {
+      //   p_id: 5,
+      //   title: 'Colon',
+      //   type: 'WSI images',
+      // },
+      // {
+      //   p_id: 6,
+      //   title: 'Skin',
+      //   type: 'WSI images',
+      // },
+    ];
   }
 
   showImages(project: Project) {
-    this.recordService.selectProject = project;
+    this.recordService.updateProject(project);
     this.selectedProject = project;
     this.display = true;
   }

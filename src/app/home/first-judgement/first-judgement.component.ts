@@ -18,16 +18,19 @@ export class FirstJudgementComponent implements OnInit{
     { id: 3, name: 'None of the above'}
   ];
   counterString = '00:00:00';
+  subscription: any;
 
   constructor(
     private recordService: RecordService,
     private route: ActivatedRoute,
     private router: Router,
     private ngZone: NgZone,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder) {
+      this.subscription = this.recordService.selectProject$.subscribe();
+     }
 
   get title() {
-    return this.recordService.selectProject.title;
+    return this.subscription.title;
   }
 
   ngOnInit(): void {

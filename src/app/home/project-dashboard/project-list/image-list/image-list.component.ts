@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecordService } from 'src/app/@services/record.service';
 import { ProjectAPIService } from 'src/app/@services/project-api.service';
 import { Image, ImageArray } from 'src/app/@models/image.model';
@@ -10,10 +10,10 @@ import { ImageService } from 'src/app/@services/image.service';
   selector: 'app-image-list',
   templateUrl: './image-list.component.html',
 })
-export class ImageListComponent implements OnInit {
+export class ImageListComponent {
   imageData: ImageArray = [];
   image: Image | null = null;
-  test: any;
+  subscription: any;
 
   constructor(
     private recordService: RecordService,
@@ -21,41 +21,53 @@ export class ImageListComponent implements OnInit {
     private router: Router,
     private projectAPIService: ProjectAPIService,
     private imageService: ImageService
-  ) {}
-
-  ngOnInit(): void {
-    this.getImageList();
+  ) {
+    this.subscription = this.recordService.selectProject$.subscribe(project => {
+      // console.log(project);
+      this.getImageList(project);
+    })
   }
 
-  getImageList() {
-    this.test = this.imageService.getImageNames('brain');
-    console.log(this.test);
-    this.imageData = [
-      {
-        i_id: 1,
-        name: 'test',
+  getImageList(project: Project) {
+    this.imageService.getImageNames(project.title).subscribe({
+      next: (data) => {
+        this.imageData = data;
       },
-      {
-        i_id: 2,
-        name: 'test2',
-      },
-      {
-        i_id: 3,
-        name: 'test3',
-      },
-      {
-        i_id: 4,
-        name: 'test4',
-      },
-      {
-        i_id: 5,
-        name: 'test5',
-      },
-      {
-        i_id: 6,
-        name: 'test6',
-      },
-    ];
+      error: (error) => {
+        this.imageData = [
+          {
+            // i_id: 1,
+            name: 'test',
+            path: '/'
+          },
+          {
+            // i_id: 2,
+            name: 'test2',
+            path: '/'
+          },
+          {
+            // i_id: 3,
+            name: 'test3',
+            path: '/'
+          },
+          {
+            // i_id: 4,
+            name: 'test4',
+            path: '/'
+          },
+          {
+            // i_id: 5,
+            name: 'test5',
+            path: '/'
+          },
+          {
+            // i_id: 6,
+            name: 'test6',
+            path: '/'
+          },
+        ];
+      }
+    })
   }
 
   edit(image: Image) {
@@ -64,7 +76,7 @@ export class ImageListComponent implements OnInit {
     this.router.navigate(['..', 'firstJudgement'], {
       relativeTo: this.route,
       queryParams: {
-        iid: image.i_id,
+        iid: image.name,
       },
     });
   }
