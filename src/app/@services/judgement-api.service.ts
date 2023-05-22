@@ -8,7 +8,7 @@ import { JudgeRecord, JudgementArray } from '../@models/judgement.model';
   providedIn: 'root',
 })
 export class JudgementApiService {
-  private url = 'http://140.116.247.175:8000/';
+  private url = 'http://140.116.247.180:8888/';
   constructor(private http: HttpClient) {}
 
   postJudgement(value: JudgeRecord) {

@@ -7,7 +7,7 @@ import { LoginPost } from '../@models/login.model';
 })
 export class LoginService {
   // private url = 'http://localhost:8000/';
-  private url = 'http://140.116.247.175:8000/';
+  private url = 'http://140.116.247.180:8888/';
   constructor(private http: HttpClient) { }
 
   accountLogin(value: LoginPost) {
