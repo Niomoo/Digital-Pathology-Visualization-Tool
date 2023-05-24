@@ -20,6 +20,7 @@ export class SecondJudgementComponent implements OnInit {
 
   counterString = '00:00:00';
   subscription: any;
+  title: string = "";
 
   constructor(
     private recordService: RecordService,
@@ -29,14 +30,13 @@ export class SecondJudgementComponent implements OnInit {
     private ngZone: NgZone,
     private fb: FormBuilder
   ) {
-    this.subscription = this.recordService.selectProject$.subscribe();
-  }
-
-  get title() {
-    return this.subscription.title;
+    this.subscription = this.recordService.selectProject$.subscribe(project => {
+      this.title = project.title;
+    });
   }
 
   ngOnInit(): void {
+
     this.route.queryParams.subscribe((params) => {
       console.log(params);
     });

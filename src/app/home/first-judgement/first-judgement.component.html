@@ -22,6 +22,15 @@
         </select>
       </label>
     </form>
+    <!-- <form [formGroup]="optionsForm" class="px-4 py-2 col-span-2">
+      <label class="text-sm text-gray-900">
+        <select formControlName="options"
+          class="w-full p-3 border border-gray-400 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500">
+          <option [ngValue]="null" selected disabled>Choose the cancer type</option>
+          <option *ngFor="let option of options" [ngValue]="option">{{option}}</option>
+        </select>
+      </label>
+    </form> -->
     <div class="px-4 col-span-2 flex justify-between items-center">
       <div class="px-6 py-2 text-md text-blue-800 border border-blue-500 rounded-xl transition duration-150 ease-in-out hover:text-white hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
       (click)="back()">Back</div>

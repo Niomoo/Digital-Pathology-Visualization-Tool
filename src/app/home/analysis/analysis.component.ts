@@ -9,16 +9,19 @@ import { ImageAPIService } from 'src/app/@services/image-api.service';
   templateUrl: './analysis.component.html',
 })
 export class AnalysisComponent implements OnInit {
+  subscription: any;
+  title: string = "";
+
   constructor(
     private recordService: RecordService,
     private imageAPIService: ImageAPIService,
     private route: ActivatedRoute,
     private router: Router,
     private ngZone: NgZone
-  ) {}
-
-  get title() {
-    return this.recordService.selectProject$.subscribe();
+  ) {
+    this.subscription = this.recordService.selectProject$.subscribe(project => {
+      this.title = project.title;
+    });
   }
 
   get firstJudge() {

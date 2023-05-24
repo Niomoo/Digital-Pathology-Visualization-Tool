@@ -18,6 +18,8 @@ export class FirstJudgementComponent implements OnInit{
     { id: 2, name: 'LUSC'},
     { id: 3, name: 'None of the above'}
   ];
+  // optionsForm!: FormGroup;
+  // options = [];
   counterString = '00:00:00';
   subscription: any;
   title: string = "";
@@ -38,7 +40,9 @@ export class FirstJudgementComponent implements OnInit{
 
     this.judgeForm = this.fb.group({
       judge: [null]
-    });
+    })
+    // this.optionsForm = this.recordService.optionsForm;
+    // this.options = this.recordService.optionsForm.get('options')?.value;
 
     const viewer = this.ngZone.runOutsideAngular(() =>
       OpenSeadragon({
