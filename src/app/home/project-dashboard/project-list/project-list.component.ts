@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectAPIService } from './../../../@services/project-api.service';
-import { RecordService } from './../../../@services/record.service';
-import { Project, ProjectArray } from './../../../@models/project.model';
+import { ProjectAPIService } from 'src/app/@services/project-api.service';
+import { RecordService } from 'src/app/@services/record.service';
+import { Project, ProjectArray } from 'src/app/@models/project.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

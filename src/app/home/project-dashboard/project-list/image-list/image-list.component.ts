@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RecordService } from './../../../../@services/record.service';
-import { ProjectAPIService } from './../../../../@services/project-api.service';
-import { Image, ImageArray } from './../../../../@models/image.model';
-import { Project } from './../../../../@models/project.model';
-import { ImageService } from './../../../../@services/image.service';
+import { RecordService } from 'src/app/@services/record.service';
+import { ProjectAPIService } from 'src/app/@services/project-api.service';
+import { Image, ImageArray } from 'src/app/@models/image.model';
+import { Project } from 'src/app/@models/project.model';
+import { ImageService } from 'src/app/@services/image.service';
 
 @Component({
   selector: 'app-image-list',

@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
 import { interval } from 'rxjs';
-import { RecordService } from './../../@services/record.service';
+import { RecordService } from 'src/app/@services/record.service';
+import { ImageAPIService } from 'src/app/@services/image-api.service';
 
 @Component({
   selector: 'app-second-judgement',
@@ -22,6 +23,7 @@ export class SecondJudgementComponent implements OnInit {
 
   constructor(
     private recordService: RecordService,
+    private imageAPIService: ImageAPIService,
     private route: ActivatedRoute,
     private router: Router,
     private ngZone: NgZone,
@@ -48,7 +50,7 @@ export class SecondJudgementComponent implements OnInit {
         id: 'openseadragon1',
         prefixUrl:
           'https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/',
-        tileSources: '/assets/svs/TCGA-BRCA.dzi',
+        tileSources: this.imageAPIService.getImagePath(this.recordService.selectImage),
       })
     );
     const viewer2 = this.ngZone.runOutsideAngular(() =>
@@ -56,7 +58,7 @@ export class SecondJudgementComponent implements OnInit {
         id: 'openseadragon2',
         prefixUrl:
           'https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/',
-        tileSources: '/assets/svs/TCGA-BRCA.dzi',
+        tileSources: this.imageAPIService.getImagePath(this.recordService.selectImage),
       })
     );
 
