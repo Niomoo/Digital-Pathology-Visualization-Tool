@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
-import { RecordService } from 'src/app/@services/record.service';
+import { RecordService } from './../../@services/record.service';
 
 @Component({
   selector: 'app-analysis',

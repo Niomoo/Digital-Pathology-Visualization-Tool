@@ -70,28 +70,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all",
-              "optimization": {
-                "splitChunks": {
-                  "cacheGroups": [
-                    {
-                      "test": "./../nas/DZI/Brain/",
-                      "name": "brain",
-                      "enforce": true
-                    },
-                    {
-                      "test": "./../nas/DZI/Breast/",
-                      "name": "breast",
-                      "enforce": true
-                    },
-                    {
-                      "test": "./../nas/DZI/Lung/",
-                      "name": "lung",
-                      "enforce": true
-                    }
-                  ]
-                }
-              }
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,

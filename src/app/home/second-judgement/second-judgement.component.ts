@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as OpenSeadragon from 'openseadragon';
 import { interval } from 'rxjs';
-import { RecordService } from 'src/app/@services/record.service';
+import { RecordService } from './../../@services/record.service';
 
 @Component({
   selector: 'app-second-judgement',

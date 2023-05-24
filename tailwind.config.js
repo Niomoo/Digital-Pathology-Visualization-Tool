@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        main: "url('src/assets/background.svg')",
+        main: "url('./assets/background.svg')",
       },
       borderColor: {
         selected: "#F6F8FD",
@@ -23,7 +23,7 @@ module.exports = {
       },
       height: {
         "50v": "50vh",
-        "55v": "55vh",
+        "54v": "54vh",
         "60v": "60vh",
       }
     },
