@@ -1,3 +1,4 @@
+import { JudgementApiService } from './../../@services/judgement-api.service';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,6 +23,7 @@ export class SecondJudgementComponent implements OnInit {
   constructor(
     private recordService: RecordService,
     private imageAPIService: ImageAPIService,
+    private judgementApiService: JudgementApiService,
     private route: ActivatedRoute,
     private router: Router,
     private ngZone: NgZone,
@@ -97,7 +99,17 @@ export class SecondJudgementComponent implements OnInit {
   next() {
     this.recordService.secondDuration = this.counterString;
     this.recordService.secondJudge = this.judgeForm.value.judge;
-
+    this.judgementApiService.postJudgement({
+      'u_id': this.recordService.u_id,
+      'i_id_id': null,
+      'title': this.title,
+      'name': this.recordService.selectImage.name,
+      'path': this.recordService.selectImage.path,
+      'firstDuration': this.recordService.firstDuration,
+      'secondDuration': this.recordService.secondDuration,
+      'firstJudge': this.recordService.firstJudge,
+      'secondJudge': this.recordService.secondJudge
+    })
     this.router.navigate(['..', 'analysis'], {
       relativeTo: this.route,
     });

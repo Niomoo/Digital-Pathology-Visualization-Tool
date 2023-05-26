@@ -22,6 +22,7 @@ export class RecordService {
   secondJudge: string = '';
   firstDuration: string = '';
   secondDuration: string = '';
+  u_id = 1;
 
   formatTime(seconds: number): string {
     const second = Math.floor(seconds / 1000);
