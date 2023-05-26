@@ -5,6 +5,7 @@ import * as OpenSeadragon from 'openseadragon';
 import { interval } from 'rxjs';
 import { RecordService } from 'src/app/@services/record.service';
 import { ImageAPIService } from 'src/app/@services/image-api.service';
+import { Organ } from '../../@models/organ.const';
 
 @Component({
   selector: 'app-second-judgement',
@@ -12,11 +13,7 @@ import { ImageAPIService } from 'src/app/@services/image-api.service';
 })
 export class SecondJudgementComponent implements OnInit {
   judgeForm!: FormGroup;
-  judges = [
-    { id: 1, name: 'LUAD' },
-    { id: 2, name: 'LUSC' },
-    { id: 3, name: 'None of the above' },
-  ];
+  judges = [{ id: 1, name: 'test'}];
 
   counterString = '00:00:00';
   subscription: any;
@@ -44,6 +41,21 @@ export class SecondJudgementComponent implements OnInit {
     this.judgeForm = this.fb.group({
       judge: [null],
     });
+
+    switch(this.title) {
+      case "Breast":
+        this.judges = Organ[this.title];
+        break;
+      case "Lung":
+        this.judges = Organ[this.title];
+        break;
+      case "Brain":
+        this.judges = Organ[this.title];
+        break;
+      default:
+        this.judges = [];
+        break;
+    }
 
     const viewer = this.ngZone.runOutsideAngular(() =>
       OpenSeadragon({
