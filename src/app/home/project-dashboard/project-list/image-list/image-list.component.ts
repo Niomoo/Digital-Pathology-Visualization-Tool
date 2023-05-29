@@ -2,8 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecordService } from 'src/app/@services/record.service';
 import { ProjectAPIService } from 'src/app/@services/project-api.service';
-import { Image, ImageArray } from 'src/app/@models/image.model';
-import { Project } from 'src/app/@models/project.model';
+import { Project, Image, ImageArray } from 'src/app/@models/project.model';
 import { ImageService } from 'src/app/@services/image.service';
 
 @Component({
@@ -19,7 +18,6 @@ export class ImageListComponent {
     private recordService: RecordService,
     private route: ActivatedRoute,
     private router: Router,
-    private projectAPIService: ProjectAPIService,
     private imageService: ImageService
   ) {
     this.subscription = this.recordService.selectProject$.subscribe(project => {

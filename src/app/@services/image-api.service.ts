@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Image } from '../@models/image.model';
+import { Image } from '../@models/project.model';
 
 @Injectable({
   providedIn: 'root'

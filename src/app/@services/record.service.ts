@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Project, ProjectArray } from '../@models/project.model';
+import { Project, ProjectArray, Image, ImageArray } from '../@models/project.model';
 import { Counter } from '../@models/counter.model';
-import { Image, ImageArray } from '../@models/image.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,6 @@ export class RecordService {
   selectProject = new BehaviorSubject<Project>({
     p_id: 0,
     title: 'test',
-    type: 'WSI'
   });
   selectProject$ = this.selectProject.asObservable();
   projectList: ProjectArray = [];

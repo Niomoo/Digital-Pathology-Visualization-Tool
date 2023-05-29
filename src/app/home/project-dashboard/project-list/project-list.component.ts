@@ -17,8 +17,6 @@ export class ProjectListComponent implements OnInit {
   constructor(
     private recordService: RecordService,
     private route: ActivatedRoute,
-    private router: Router,
-    private projectAPIService: ProjectAPIService
   ) {}
 
   ngOnInit(): void {
@@ -36,32 +34,26 @@ export class ProjectListComponent implements OnInit {
       {
         p_id: 1,
         title: 'Breast',
-        type: 'WSI images',
       },
       {
         p_id: 2,
         title: 'Lung',
-        type: 'WSI images',
       },
       // {
       //   p_id: 3,
       //   title: 'Kidney',
-      //   type: 'WSI images',
       // },
       {
         p_id: 4,
         title: 'Brain',
-        type: 'WSI images',
       },
       // {
       //   p_id: 5,
       //   title: 'Colon',
-      //   type: 'WSI images',
       // },
       // {
       //   p_id: 6,
       //   title: 'Skin',
-      //   type: 'WSI images',
       // },
     ];
   }
