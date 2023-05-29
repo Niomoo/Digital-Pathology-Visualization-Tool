@@ -1,6 +1,6 @@
 export interface JudgeRecord {
   u_id: number;
-  i_id_id: number | null;
+  i_id: number | null;
   title: string;
   name: string;
   path: string;

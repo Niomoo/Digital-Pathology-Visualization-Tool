@@ -1,4 +1,4 @@
-import { JudgementApiService } from './../../@services/judgement-api.service';
+import { JudgementAPIService } from './../../@services/judgement-api.service';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class SecondJudgementComponent implements OnInit {
   constructor(
     private recordService: RecordService,
     private imageAPIService: ImageAPIService,
-    private judgementApiService: JudgementApiService,
+    private judgementAPIService: JudgementAPIService,
     private route: ActivatedRoute,
     private router: Router,
     private ngZone: NgZone,
@@ -99,9 +99,9 @@ export class SecondJudgementComponent implements OnInit {
   next() {
     this.recordService.secondDuration = this.counterString;
     this.recordService.secondJudge = this.judgeForm.value.judge;
-    this.judgementApiService.postJudgement({
+    this.judgementAPIService.postJudgement({
       'u_id': this.recordService.u_id,
-      'i_id_id': null,
+      'i_id': null,
       'title': this.title,
       'name': this.recordService.selectImage.name,
       'path': this.recordService.selectImage.path,
@@ -109,9 +109,13 @@ export class SecondJudgementComponent implements OnInit {
       'secondDuration': this.recordService.secondDuration,
       'firstJudge': this.recordService.firstJudge,
       'secondJudge': this.recordService.secondJudge
-    })
-    this.router.navigate(['..', 'analysis'], {
-      relativeTo: this.route,
+    }).subscribe((data: any) => {
+      if(data.status == 201) {
+        // alert('紀錄已儲存');
+        this.router.navigate(['..', 'analysis'], {
+          relativeTo: this.route,
+        });
+      }
     });
   }
 }
