@@ -1,5 +1,6 @@
 export const appPath = {
   login: 'login',
+  register: 'register',
   home: 'home',
   manage: {
     projectDashboard: 'projectDashboard',

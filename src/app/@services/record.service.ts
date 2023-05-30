@@ -21,6 +21,8 @@ export class RecordService {
   firstDuration: string = '';
   secondDuration: string = '';
   u_id = 1;
+  name = "Jenny";
+  mail = "myEmail@gmail.com";
 
   formatTime(seconds: number): string {
     const second = Math.floor(seconds / 1000);

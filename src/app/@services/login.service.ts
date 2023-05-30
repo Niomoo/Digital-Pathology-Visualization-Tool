@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginPost } from '../@models/login.model';
+import { LoginPost, RegisterPost } from '../@models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +12,9 @@ export class LoginService {
 
   accountLogin(value: LoginPost) {
     return this.http.post(this.url + 'users/', value);
+  }
+
+  accountRegister(value: RegisterPost) {
+    return this.http.post(this.url + 'register/', value);
   }
 }
