@@ -16,7 +16,7 @@
         <tr *ngFor="let record of recordData">
           <td class="border px-4 py-2">{{ record.title }}</td>
           <td class="border px-4 py-2">{{ record.name }}</td>
-          <td class="border px-4 py-2 text-red-500">{{ record.firstJudge }} / {{ record.secondJudge }}</td>
+          <td class="border px-4 py-2" [ngClass]="{'text-red-500': record.firstJudge != record.secondJudge}">{{ record.firstJudge }} / {{ record.secondJudge }}</td>
           <td class="border px-4 py-2">{{ record.firstDuration }} / {{ record.secondDuration }}</td>
           <td class="border px-4 py-2">{{ record.created_time }}</td>
         </tr>
