@@ -7,7 +7,7 @@ import { JudgementAPIService } from 'src/app/@services/judgement-api.service';
   selector: 'app-history',
   templateUrl: './history.component.html',
 })
-export class HistoryComponent{
+export class HistoryComponent implements OnInit {
 
   recordData: RecordArray = [];
 
