@@ -13,4 +13,10 @@ export class ImageAPIService {
   getImagePath(image: Image): string {
     return this.url + 'dzi/' + image.path;
   }
+
+  getHeatMapPath(image: Image): string {
+    let heatmap = image.path.replace('.svs.dzi', '_HeatMap.png');
+    return this.url + 'heatmap/' + heatmap;
+  }
+
 }
