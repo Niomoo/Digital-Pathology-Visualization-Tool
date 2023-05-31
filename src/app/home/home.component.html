@@ -1,4 +1,4 @@
-<div class="h-full flex flex-col">
+<div class="h-full w-full flex flex-col">
   <header>
     <nav class="flex items-center justify-between bg-primary shadow-xl rounded-2xl px-7 mb-6">
       <div class="logo">
@@ -35,11 +35,11 @@
       </div>
     </nav>
   </header>
-  <main class="flex-grow flex justify-between">
+  <main class="flex-grow flex justify-between overflow-auto">
     <!-- <section class="bg-primary  w-1/5 rounded-2xl p-5 shadow-xl">
       <app-upload-dataset></app-upload-dataset>
     </section> -->
-    <section class="bg-primary w-full h-full rounded-2xl p-5 shadow-xl">
+    <section class="bg-primary w-full h-full rounded-2xl px-6 py-4 shadow-xl overflow-auto">
       <!-- <app-project-dashboard></app-project-dashboard> -->
       <router-outlet></router-outlet>
     </section>
