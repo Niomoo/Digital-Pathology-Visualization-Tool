@@ -89,6 +89,10 @@ export class SecondJudgementComponent implements OnInit {
       viewer2.viewport.zoomTo(event.zoom, event.refPoint, event.immediately);
     });
 
+    viewer.addHandler('pan', function(event) {
+      viewer2.viewport.panTo(event.center, event.immediately);
+    })
+
     const startTime = new Date();
     interval(1000).subscribe(() => {
       const currentTime = new Date();
