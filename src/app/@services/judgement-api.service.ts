@@ -15,10 +15,10 @@ export class JudgementAPIService {
 
   postJudgement(value: Judgement) {
     console.log(value);
-    return this.http.post(this.url + 'postJudgement/', value);
+    return this.http.post(this.url + 'judgement/', value);
   }
 
   getJudgement(id: number): Observable<RecordArray> {
-    return this.http.get(this.url + 'judgements/' + id) as Observable<RecordArray>;
+    return this.http.get(this.url + 'judgement/' + id) as Observable<RecordArray>;
   }
 }

@@ -11,10 +11,10 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   accountLogin(value: LoginPost) {
-    return this.http.post(this.url + 'users/', value);
+    return this.http.post(this.url + 'user/login', value);
   }
 
   accountRegister(value: RegisterPost) {
-    return this.http.post(this.url + 'register/', value);
+    return this.http.post(this.url + 'user/', value);
   }
 }

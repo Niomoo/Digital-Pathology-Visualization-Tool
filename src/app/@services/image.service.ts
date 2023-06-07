@@ -12,7 +12,7 @@ export class ImageService {
   constructor(private http: HttpClient) { }
 
   getImageNames(dir: string): Observable<ImageArray> {
-    return this.http.get(this.url + 'projects/' + dir) as Observable<ImageArray>;
+    return this.http.get(this.url + 'project/' + dir) as Observable<ImageArray>;
   }
 
 }

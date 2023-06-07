@@ -20,6 +20,9 @@
           <td class="border px-4 py-2">{{ record.firstDuration }} / {{ record.secondDuration }}</td>
           <td class="border px-4 py-2">{{ record.created_time }}</td>
         </tr>
+        <tr *ngIf="!recordData || recordData.length == 0">
+          <td colspan="5" class="italic text-center text-gray-400 py-2" >There's no judgement record!</td>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -13,6 +13,6 @@ export class ProjectAPIService {
   constructor(private http: HttpClient) { }
 
   getProject(id: number): Observable<ProjectArray> {
-    return this.http.get(this.url + 'projects/' + id) as Observable<ProjectArray>;
+    return this.http.get(this.url + 'project/' + id) as Observable<ProjectArray>;
   }
 }

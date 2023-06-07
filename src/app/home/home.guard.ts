@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeGuard implements CanActivate {
+
+  constructor(private router: Router) { }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot)
     : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const canActivate = next.queryParams['id'] === '1';
+      const canActivate = next.queryParams['id'];
 
-      if(!canActivate) {
-        // alert('使用者錯誤');
+      if(canActivate == null) {
+        alert('Please log in!');
+        this.router.navigate(['/login']);
       }
-      // return canActivate;
-      return true;
+      return canActivate;
   }
 
 }
