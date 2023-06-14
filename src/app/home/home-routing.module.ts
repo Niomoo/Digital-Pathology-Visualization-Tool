@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { HomeGuard } from './home.guard';
 import { HistoryComponent } from './history/history.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: appPath.manage.statistics,
         component: StatisticsComponent,
+      },
+      {
+        path: appPath.manage.feedback,
+        component: FeedbackComponent,
       },
       {
         path: '**',

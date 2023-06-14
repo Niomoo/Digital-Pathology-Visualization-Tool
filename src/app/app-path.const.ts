@@ -8,6 +8,7 @@ export const appPath = {
     secondJudgement: 'secondJudgement',
     analysis: 'analysis',
     history: 'history',
-    statistics: 'statistics'
+    statistics: 'statistics',
+    feedback: 'feedback',
   },
 };

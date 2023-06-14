@@ -15,6 +15,7 @@ import { AnalysisComponent } from './analysis/analysis.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ImageListComponent } from './project-dashboard/project-list/image-list/image-list.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ImageListComponent } from './project-dashboard/project-list/image-list/
     DataDetailComponent,
     AnalysisComponent,
     HistoryComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,
