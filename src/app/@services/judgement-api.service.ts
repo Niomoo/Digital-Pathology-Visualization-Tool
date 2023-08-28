@@ -4,21 +4,20 @@ import { HttpClient } from '@angular/common/http';
 
 import { Judgement } from '../@models/project.model';
 import { RecordArray } from '../@models/record.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JudgementAPIService {
-  // private url = 'http://localhost:8000/';
-  private url = 'http://140.116.247.180:8081/';
   constructor(private http: HttpClient) {}
 
   postJudgement(value: Judgement) {
     console.log(value);
-    return this.http.post(this.url + 'judgement/', value);
+    return this.http.post(`${environment.baseUrl}` + 'judgement/', value);
   }
 
   getJudgement(id: number): Observable<RecordArray> {
-    return this.http.get(this.url + 'judgement/' + id) as Observable<RecordArray>;
+    return this.http.get(`${environment.baseUrl}` + 'judgement/' + id) as Observable<RecordArray>;
   }
 }

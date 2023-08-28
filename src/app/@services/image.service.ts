@@ -2,17 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ImageArray } from '../@models/project.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
-  // private url = 'http://localhost:8000/';
-  private url = 'http://140.116.247.180:8081/';
   constructor(private http: HttpClient) { }
 
   getImageNames(dir: string): Observable<ImageArray> {
-    return this.http.get(this.url + 'project/' + dir) as Observable<ImageArray>;
+    return this.http.get(`${environment.baseUrl}` + 'project/' + dir) as Observable<ImageArray>;
   }
 
 }
