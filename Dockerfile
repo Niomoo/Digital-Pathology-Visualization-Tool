@@ -5,3 +5,4 @@ COPY package.json /app/package.json
 RUN npm install
 RUN npm install -g @angular/cli@15.2.4
 COPY . /app
+ENTRYPOINT ["ng", "serve", "--host", "0.0.0.0"]
