@@ -11,7 +11,7 @@ variables:
 ###################
 frontend-build:
   stage: build
-  image: node:alpine
+  image: node:18.15.0
   script:
     - echo "Start building frontend"
     - npm install
@@ -33,7 +33,7 @@ frontend-build:
 ##################
 frontend-test:
   stage: test
-  image: node:alpine
+  image: node:18.15.0
   script:
     - echo "Start testing frontend"
     - npm run test
